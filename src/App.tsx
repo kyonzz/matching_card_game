@@ -55,7 +55,6 @@ const App = () => {
           )
         };
       });
-      setAlert(true);
     } else {
       setGameStats(stats => {
         return {
@@ -63,8 +62,9 @@ const App = () => {
           lostTime: stats.lostTime + 1
         };
       });
-      setAlert(true);
     }
+
+    setAlert(true);
   }, [gameState.end]);
 
   const [flippedCard, setFlippedCard] = useState<
@@ -123,7 +123,7 @@ const App = () => {
   return (
     <div className="container mx-auto p-4 max-w-full md:max-w-6xl xl:max-w-screen-xl relative">
       <Dialog
-        isOpen={gameState.end}
+        isOpen={showAlert}
         style={{
           background: "transparent"
         }}
